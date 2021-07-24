@@ -1,4 +1,4 @@
-%%¿ªÊ¼³¢ÊÔµ÷ÓÃº¯Êı½øĞĞ¼ÆËã
+%%å¼€å§‹å°è¯•è°ƒç”¨å‡½æ•°è¿›è¡Œè®¡ç®—
 tic
 oimage=xlsread('ex1.xlsx');
 shimitu=xlsread('nex2.xlsx');
@@ -9,42 +9,42 @@ qz_h2=0.8;
 %%
 foimage=oimage(1:2:end,1:2:end);
 
-%% ¸ß¶È²Î¿¼´°¿Ú½ØÈ¡0307
+%% é«˜åº¦å‚è€ƒçª—å£æˆªå–
 [~,fslide_window,ysjz,yx_num]=newchuangkou(foimage,size_window);
 
-%% foimage²Î¿¼Í¼ÆÂ¶È¼ÆËã
-cellsize=30;%Ô­Í¼µÄ·Ö±æÂÊ
+%% foimageå‚è€ƒå›¾å¡åº¦è®¡ç®—
+cellsize=30;%åŸå›¾çš„åˆ†è¾¨ç‡
 f_cellsize=cellsize*2;
 slope_foimage=podujisuan(foimage,f_cellsize);
 
-%% foimage²ğ·ÖÆÂ¶È´°¿Ú 0306
+%% foimageæ‹†åˆ†å¡åº¦çª—å£ 
 fslope_fslide_window=newchuangkou(slope_foimage,size_window);
 
-%% ¶ÔfoimageÆÂ¶È´°¿Ú¹éÒ»»¯0306
+%% å¯¹foimageå¡åº¦çª—å£å½’ä¸€åŒ–
 [g_diff_slope_fslide_window,~,~]=guiyihua(fslope_fslide_window);
 
-%% ²Î¿¼¸ß¶È´°¿Ú¹éÒ»»¯0306
+%% å‚è€ƒé«˜åº¦çª—å£å½’ä¸€åŒ–
 [g_diff_fslide_window,~,~]=guiyihua(fslide_window);
 
-%% ´ıÀ©³ä£¨Ô­Í¼£©ÆÂ¶È¼ÆËã
+%% å¾…æ‰©å……ï¼ˆåŸå›¾ï¼‰å¡åº¦è®¡ç®—
 slope_oimage=podujisuan(oimage,cellsize);
 
-%% oimage£¨´ıÀ©³ä£©²ğ·ÖÆÂ¶È´°¿Ú
+%% oimageï¼ˆå¾…æ‰©å……ï¼‰æ‹†åˆ†å¡åº¦çª—å£
 slope_ytslide_window=newchuangkou(slope_oimage,size_window);
 
-%% ¶Ô´ıÀ©³äµÄÆÂ¶È´°¿Ú¹éÒ»»¯-0306
+%% å¯¹å¾…æ‰©å……çš„å¡åº¦çª—å£å½’ä¸€åŒ–
 [g_diff_slope_ytslide_window,~,~]=guiyihua(slope_ytslide_window);
 
-%% »¬¶¯´ıÀ©³ä¸ß¶È´°¿Ú
+%% æ»‘åŠ¨å¾…æ‰©å……é«˜åº¦çª—å£
 ytslide_window=newchuangkou(oimage,size_window);
 
-%% ´ıÀ©³ä¸ß¶È´°¿Ú¹éÒ»»¯0306
+%% å¾…æ‰©å……é«˜åº¦çª—å£å½’ä¸€åŒ–
 [g_diff_ytslide_window,ytfmx,ytfmn]=guiyihua(ytslide_window);
 
-%% ¼ÆËã¸ß¶ÈÏà¹ØĞÔ+ÆÂ¶ÈÏà¹ØĞÔ-ĞŞ¸ÄÆÂ¶È0306
+%% è®¡ç®—é«˜åº¦ç›¸å…³æ€§+å¡åº¦ç›¸å…³æ€§-ä¿®æ”¹å¡åº¦
 daiti_number=qzjisuan(g_diff_ytslide_window,g_diff_fslide_window,g_diff_slope_ytslide_window,g_diff_slope_fslide_window,qz_h1,ysjz,yx_num);
 
-%%Ìæ»»ÇÒ¶ÔÓ¦
+%%æ›¿æ¢ä¸”å¯¹åº”
 result_image1=window_tihuan(oimage,daiti_number,ytfmx,ytfmn);
 
 toc
